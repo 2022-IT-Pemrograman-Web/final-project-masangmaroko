@@ -31,7 +31,7 @@
 </header>
 <div class="h-screen flex bg-gray-200">
     <div class="bg-gray-200 border border-green-500 w-full max-w-sm m-auto  p-4 bg-white  rounded-lg shadow-md sm:p-6 md:p-8 flex items-center flex justify-center">
-        <form class="space-y-6" action="#">
+        <form class="space-y-6" action="#" @submit.prevent="postUser( email, password)">
             <h5 class="text-xl font-medium text-gray-900 dark:text-white flex justify-center">Register</h5>
             <div>
                 <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Email</label>
@@ -43,7 +43,7 @@
               <a id="cek" class="text-red-700 text-sm"></a>
             </div>
             <div class="flex justify-center">
-            <button @click="postUser( email, password)" type="submit" class="w-24 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 flex justify-center">Submit</button>
+            <button type="submit" class="w-24 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 flex justify-center">Submit</button>
             </div>
         </form>
     </div>

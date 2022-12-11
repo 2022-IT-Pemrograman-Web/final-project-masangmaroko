@@ -82,7 +82,8 @@
               >Enter Link :</label
             >
             <input
-              type="text"
+              type="url"
+              required
               ref="oldLink"
               :placeholder="this.links.find(link => link.id == this.ids).oldLink"
               class="flex w-full border-2 border-green-500 bg-gray-50 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -95,14 +96,15 @@
             <input
               type="text"
               ref="newLink"
+              required
               :placeholder="this.links.find(link => link.id == this.ids).id"
               class="mx-auto border-2 border-green-500 bg-gray-50 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
             />
             <div class="mx-auto">
               <div class="flex gap-x-3">
-                <button
+                <button type="submit"
                   class="text-white bg-red-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 flex justify-center"
-                  @click="deleteLink(link.id)"
+                  
                 >
                 
                   Delete
@@ -147,6 +149,16 @@ export default {
                 console.log(err)
                 this.getLinks()
             }
+        },
+        async logOut() {
+          try {
+            const res = await axios.get("http://localhost:3000/logout");
+            console.log('logout');
+            localStorage.removeItem("userToken");
+            this.$router.push("/");
+          } catch (e) {
+            console.log(e);
+          }
         },
         
         async deleteLink(id){

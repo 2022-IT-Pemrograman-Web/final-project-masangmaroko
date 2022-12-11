@@ -69,7 +69,7 @@
         class="bg-gray-200 flex flex-col border-8 gap-y-8 border-white border-2 w-full max-w-5xl m-auto p-4 bg-white  rounded-lg shadow-md sm:p-6 md:p- flex items-center flex justify-center"
       >
       <div class="w-full py-4 rounded-lg">
-        <form class="space-y-6">
+        <form class="space-y-6" @submit.prevent="addLink(oldLink, newLink)">
           <h1
             class=" font-bold text-gray-900 md:p-0 text-black  underline flex justify-center text-6xl "
           >
@@ -82,7 +82,7 @@
               >Drop Your Link : </label
             >
             <input
-              type="text"
+              type="url"
               name="oldLink"
               id="oldLink"
               class="flex w-full border-2 border-green-500 bg-gray-50 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -107,7 +107,7 @@
          
             <div class="mx-auto">
             <button
-            @click="addLink(oldLink, newLink)"
+            type="submit"
             class="text-white bg-red-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 flex justify-center "
           >
             Short Your Link
